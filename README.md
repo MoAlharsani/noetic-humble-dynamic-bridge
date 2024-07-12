@@ -53,7 +53,7 @@ This repository contains ROS1 and ROS2 packages that enable communication betwee
     source devel/setup.bash
     ```
 
-5. To run the nodes:
+5. To run the nodes: (see [Example](#example-communicating-between-ros2-and-ros1-nodes))
 
     ```bash
     rosrun ros_connection_bridge mqtt_ros_bridge.py <msg_type> <ros_topic> <mqtt_topic> [host] [port]
@@ -95,9 +95,9 @@ This repository contains ROS1 and ROS2 packages that enable communication betwee
     source install/setup.bash
     ```
 
-5. To run the nodes:
+5. To run the nodes: (see [Example](#example-communicating-between-ros2-and-ros1-nodes))
 
-    ```bash
+    ```bash 
     ros2 run ros_connection_bridge mqtt_ros_bridge <msg_type> <ros_topic> <mqtt_topic> [host] [port]
     ros2 run ros_connection_bridge ros_mqtt_bridge <msg_type> <ros_topic> <mqtt_topic> [host] [port]
     ```
@@ -105,7 +105,7 @@ This repository contains ROS1 and ROS2 packages that enable communication betwee
 
 ## Usage
 
-### Example: Communicating between ROS2 and ROS1 nodes
+### Example: Communicating between ROS2 and ROS1 nodes (#example)
 
 #### Scenario
 
