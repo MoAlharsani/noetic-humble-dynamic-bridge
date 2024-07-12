@@ -2,6 +2,10 @@
 
 This repository contains ROS1 and ROS2 packages that enable communication between hosts running different ROS distributions (e.g., ROS1 Noetic, ROS2 Foxy, or ROS2 Humble) within the same network or over the internet. The communication is facilitated using either public or local MQTT brokers. This package allows seamless data exchange between different ROS distributions or even the same ROS versions across different machines. 
 
+## Package illustaction 
+![illustration](https://github.com/user-attachments/assets/229a6cba-0263-490c-9b69-64d4caea1c41)
+
+
 ## Installation
 
 ### Prerequisites
@@ -122,7 +126,7 @@ We want to send messages from a ROS2 node on Device A to a ROS1 node on Device B
     - Run the ROS2 node to publish messages on the ROS topic (`/chatter`) to the MQTT broker on the MQTT topic (`/chatter_mqtt`):
 
         ```bash
-        humble@robot:~$ ros2 run ros_connection_bridge ros_mqtt_bridge String /chatter /chatter_mqtt broker.hivemq.com 1883
+        humble@robot:~$ ros2 run ros_connection_bridge ros_mqtt_bridge String /chatter /chatter_mqtt broker.emqx.io 1883
         ```
 
     - Run a sample talker node to publish messages to the ROS topic `/chatter`:
@@ -136,7 +140,7 @@ We want to send messages from a ROS2 node on Device A to a ROS1 node on Device B
     - Run the ROS1 node to subscribe to the MQTT broker topic (`/chatter_mqtt`) and publish messages to the ROS topic `/chatter`:
 
         ```bash
-        noetic@pc:~$ rosrun ros_connection_bridge mqtt_ros_bridge.py String /chatter /chatter_mqtt broker.hivemq.com 1883
+        noetic@pc:~$ rosrun ros_connection_bridge mqtt_ros_bridge.py String /chatter /chatter_mqtt broker.emqx.io 1883
         ```
 
     - Run a sample listener node to listen to messages from the `/chatter` topic:
@@ -147,7 +151,7 @@ We want to send messages from a ROS2 node on Device A to a ROS1 node on Device B
 
 #### Explanation
 
-- The `ros_mqtt_bridge` node on Device A subscribes to the `/chatter` topic in ROS2 and publishes the messages to the MQTT broker (`broker.hivemq.com` on port `1883`).
+- The `ros_mqtt_bridge` node on Device A subscribes to the `/chatter` topic in ROS2 and publishes the messages to the MQTT broker (`broker.emqx.iom` on port `1883`).
 - The `mqtt_ros_bridge` node on Device B subscribes to the MQTT broker and republishes the messages to the `/chatter` topic in ROS1.
 - The listener node on Device B will then receive the messages published by the talker node on Device A, demonstrating successful communication between ROS2 and ROS1 nodes via an MQTT broker.
 
