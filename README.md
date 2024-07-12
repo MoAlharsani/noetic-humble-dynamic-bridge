@@ -2,7 +2,7 @@
 
 This repository contains ROS1 and ROS2 packages that enable communication between hosts running different ROS distributions (e.g., ROS1 Noetic, ROS2 Foxy, or ROS2 Humble) within the same network or over the internet. The communication is facilitated using either public or local MQTT brokers. This package allows seamless data exchange between different ROS distributions or even the same ROS versions across different machines. 
 
-## Package illustaction 
+## A picture is worth a thousand words
 ![illustration](https://github.com/user-attachments/assets/229a6cba-0263-490c-9b69-64d4caea1c41)
 
 
