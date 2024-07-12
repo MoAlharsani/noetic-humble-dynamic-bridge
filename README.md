@@ -105,7 +105,7 @@ This repository contains ROS1 and ROS2 packages that enable communication betwee
 
 ## Usage
 
-### Example: Communicating between ROS2 and ROS1 nodes (#example)
+### Example: Communicating between ROS2 and ROS1 nodes
 
 #### Scenario
 
