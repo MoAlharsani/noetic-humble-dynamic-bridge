@@ -119,13 +119,13 @@ We want to send messages from a ROS2 node on Device A to a ROS1 node on Device B
 
 1. **On Device A (ROS2 Humble)**:
 
-    - Run the ROS2 node to publish messages to the MQTT broker:
+    - Run the ROS2 node to publish messages on the ROS topic (`/chatter`) to the MQTT broker on the MQTT topic (`/chatter_mqtt`):
 
         ```bash
-        humble@robot:~$ ros2 run ros_connection_bridge ros_mqtt_bridge String /chatter /chatter broker.hivemq.com 1883
+        humble@robot:~$ ros2 run ros_connection_bridge ros_mqtt_bridge String /chatter /chatter_mqtt broker.hivemq.com 1883
         ```
 
-    - Run a sample talker node to publish messages to the `/chatter` topic:
+    - Run a sample talker node to publish messages to the ROS topic `/chatter`:
 
         ```bash
         humble@robot:~$ ros2 run demo_nodes_cpp talker
@@ -133,10 +133,10 @@ We want to send messages from a ROS2 node on Device A to a ROS1 node on Device B
 
 2. **On Device B (ROS1 Noetic)**:
 
-    - Run the ROS1 node to subscribe to the MQTT broker and publish messages to the `/chatter` topic:
+    - Run the ROS1 node to subscribe to the MQTT broker topic (`/chatter_mqtt`) and publish messages to the ROS topic `/chatter`:
 
         ```bash
-        noetic@pc:~$ rosrun ros_connection_bridge mqtt_ros_bridge.py String /chatter /chatter broker.hivemq.com 1883
+        noetic@pc:~$ rosrun ros_connection_bridge mqtt_ros_bridge.py String /chatter /chatter_mqtt broker.hivemq.com 1883
         ```
 
     - Run a sample listener node to listen to messages from the `/chatter` topic:
@@ -166,4 +166,4 @@ Contributions are welcome! Please open an issue or submit a pull request with yo
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 
